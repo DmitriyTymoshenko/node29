@@ -12,6 +12,12 @@
     "phone": "(294) 840-6685"
   },
   {
+    "id": 3,
+    "name": "Kennedy Lane",
+    "email": "mattis.Cras@nonenimMauris.net",
+    "phone": "(542) 451-7038"
+  },
+  {
     "id": 4,
     "name": "Wylie Pope",
     "email": "est@utquamvel.net",
@@ -52,23 +58,5 @@
     "name": "Alec Howard",
     "email": "Donec.elementum@scelerisquescelerisquedui.net",
     "phone": "(748) 206-2688"
-  },
-  {
-    "name": "Sol-Goodman",
-    "email": "sol@gmail.com",
-    "phone": "+38011111111",
-    "id": "70bbc28a-213c-4255-b5d9-78b9edf635a3"
-  },
-  {
-    "name": "Mango",
-    "email": "mango@gmail.com",
-    "phone": "322-22-22",
-    "id": "9044f9bb-70bf-4be5-9c27-f956f500adf7"
-  },
-  {
-    "name": "Mango",
-    "email": "mango@gmail.com",
-    "phone": "322-22-22",
-    "id": "90ca4f58-029b-4799-99ef-66ccf65a1cc9"
   }
 ]
