@@ -1,6 +1,6 @@
-const app = require('../app')
-require('dotenv').config()
 const mongoose = require('mongoose')
+require('dotenv').config()
+const app = require('../app')
 const {PORT = 3000, DB_HOST} = process.env
 
 const createServer = async () => {

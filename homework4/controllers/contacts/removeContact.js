@@ -3,7 +3,8 @@ const {NotFound} = require('http-errors')
 
 const removeContact = async (req, res) => {
     const { id } = req.params;
-    const result = await Contact.findByIdAndDelete({ _id: id })
+    const {_id : owner} = req.user
+    const result = await Contact.findOneAndDelete({ _id: id , owner })
     if (!result) {
         throw new NotFound(`Contact with id=${id} not found`);
     }

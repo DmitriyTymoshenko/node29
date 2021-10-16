@@ -1,4 +1,4 @@
-const {Schema, model, SchemaTypes} =  require("mongoose")
+const {Schema, model} =  require("mongoose")
 const Joi = require('joi');
 const bcrypt = require("bcrypt");
 const emailValidation = /^\S+@\S+\.\S+$/
@@ -23,17 +23,15 @@ const userSchema = Schema({
         type: String,
         default: null,
     },
-    owner: {
-        type: SchemaTypes.ObjectId,
-        ref: 'user',
-    }
 } , {versionKey: false, timestamps: true})
 
-// userSchema.methods.setPassword = (password) => this.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 userSchema.methods.setPassword = function(password){
     this.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }
 
+userSchema.methods.comparePassword = function(password){
+    return bcrypt.compareSync(password, this.password)
+}
 const JoiSchema = Joi.object().keys({
     password : Joi.string().min(6).required().messages({
         'any.required' : 'Password is required'
@@ -45,6 +43,10 @@ const JoiSchema = Joi.object().keys({
     token : Joi.string()
 })
 
+const JoiSubscriptionSchema = Joi.object().keys({
+    subscription : Joi.string().valid("starter", "pro", "business").required()
+})
+
 const User = model('user' , userSchema)
 
-module.exports = {User , JoiSchema}
+module.exports = {User , JoiSchema , JoiSubscriptionSchema}
